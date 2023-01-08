@@ -4,37 +4,29 @@ import ReactDom from 'react-dom/client';
 import './index.css';
 
 //https://amazon.com/Best-Sellers-Books/zgbs/books/
-const firstBook = {
-  author: 'Colleen Hoover',
-  title: 'It Ends with Us',
-  img: './images/book.jpg',
-};
-
-const secondBook = {
-  author: 'E2M Chef Connect, Jennie Casselman, Andres Chaparro',
-  title: 'Eager 2 Cook, Healthy Recipes for Healthy Living: Beef & Poultry',
-  img: 'https://images-na.ssl-images-amazon.com/images/I/612Ko7Ps0uL._AC_UL600_SR600,400_.jpg',
-};
+const books = [
+  {
+    author: 'Colleen Hoover',
+    title: 'It Ends with Us',
+    img: './images/book.jpg',
+  },
+  {
+    author: 'E2M Chef Connect, Jennie Casselman, Andres Chaparro',
+    title: 'Eager 2 Cook, Healthy Recipes for Healthy Living: Beef & Poultry',
+    img: 'https://images-na.ssl-images-amazon.com/images/I/612Ko7Ps0uL._AC_UL600_SR600,400_.jpg',
+  },
+];
 
 const BookList = () => {
+  return <section className='booklist'>{books}</section>;
+  /*
   return (
     <section className='booklist'>
       <Book
         author={firstBook.author}
         title={firstBook.title}
         img={firstBook.img}
-      >
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        <button>click me</button>
-      </Book>
+      />
       <Book
         author={secondBook.author}
         title={secondBook.title}
@@ -42,6 +34,7 @@ const BookList = () => {
       />
     </section>
   );
+  */
 };
 
 // children is a special property
