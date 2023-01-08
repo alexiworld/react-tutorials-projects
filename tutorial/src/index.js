@@ -35,11 +35,13 @@ const BookList = () => {
 
 const Book = (props) => {
   console.log(props);
+  // order in destructuring does not matter
+  const { author, img, title } = props;
   return (
     <article className='book'>
-      <img src={props.img} alt={props.title} />
-      <h2>{props.title}</h2>
-      <h4>{props.author.toUpperCase()}</h4>
+      <img src={img} alt={title} />
+      <h2>{title}</h2>
+      <h4>{author.toUpperCase()}</h4>
     </article>
   );
 };
