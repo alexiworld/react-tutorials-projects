@@ -24,7 +24,9 @@ const Book = (props) => {
       <img src={img} alt={title} />
       <h2>{title}</h2>
       <h4>{author.toUpperCase()}</h4>
-      {console.log(props)}
+      <p>{props.job}</p>
+      <p>{props.title}</p>
+      <p>{props.number}</p>
     </article>
   );
 };
