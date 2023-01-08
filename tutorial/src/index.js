@@ -4,15 +4,31 @@ import ReactDom from 'react-dom/client';
 import './index.css';
 
 //https://amazon.com/Best-Sellers-Books/zgbs/books/
-const author = 'Colleen Hoover';
-const title = 'It Ends with Us';
-const img = './images/book.jpg';
+const firstBook = {
+  author: 'Colleen Hoover',
+  title: 'It Ends with Us',
+  img: './images/book.jpg',
+};
+
+const secondBook = {
+  author: 'E2M Chef Connect, Jennie Casselman, Andres Chaparro',
+  title: 'Eager 2 Cook, Healthy Recipes for Healthy Living: Beef & Poultry',
+  img: 'https://images-na.ssl-images-amazon.com/images/I/612Ko7Ps0uL._AC_UL600_SR600,400_.jpg',
+};
 
 const BookList = () => {
   return (
     <section className='booklist'>
-      <Book author={author} title={title} img={img} />
-      <Book author={author} title={title} />
+      <Book
+        author={firstBook.author}
+        title={firstBook.title}
+        img={firstBook.img}
+      />
+      <Book
+        author={secondBook.author}
+        title={secondBook.title}
+        img={secondBook.img}
+      />
     </section>
   );
 };
