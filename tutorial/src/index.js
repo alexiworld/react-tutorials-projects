@@ -17,14 +17,15 @@ const books = [
   },
 ];
 
-const names = ['john', 'peter', 'susan'];
-
 const BookList = () => {
   return (
     <section className='booklist'>
-      {names.map((name) => {
-        console.log(name);
-        return <h1>{name}</h1>;
+      {books.map(() => {
+        return (
+          <div>
+            <h2>Item</h2>
+          </div>
+        );
       })}
     </section>
   );
