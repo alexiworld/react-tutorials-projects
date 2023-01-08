@@ -19,9 +19,11 @@ body {
   gap: 2rem;
 }
 
+/* make each book to stretch to the content to be displayed. compare book 1 and book 2 to better understand it */
 @media screen and (min-width: 768px) {
   .booklist {
     grid-template-columns: repeat(3, 1fr);
+    align-items: start;
   }
 }
 
@@ -46,4 +48,8 @@ body {
   font-size: '0.75rem';
   margin-top: '0.5rem';
   letter-spacing: 2px;
+}
+
+.book p {
+  margin: 1rem 0 0.5rem;
 }
