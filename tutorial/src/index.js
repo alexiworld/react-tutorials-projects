@@ -21,30 +21,11 @@ const BookList = () => {
   return (
     <section className='booklist'>
       {books.map((book) => {
-        return (
-          <div>
-            <h2>{book}</h2>
-          </div>
-        );
+        const { author, title, img } = book;
+        return <Book author={author} title={title} img={img} />;
       })}
     </section>
   );
-  /*
-  return (
-    <section className='booklist'>
-      <Book
-        author={firstBook.author}
-        title={firstBook.title}
-        img={firstBook.img}
-      />
-      <Book
-        author={secondBook.author}
-        title={secondBook.title}
-        img={secondBook.img}
-      />
-    </section>
-  );
-  */
 };
 
 // children is a special property
