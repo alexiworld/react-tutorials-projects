@@ -18,13 +18,16 @@ const books = [
 ];
 
 const names = ['john', 'peter', 'susan'];
-const newNames = names.map((name) => {
-  console.log(name);
-  return <h1>{name}</h1>;
-});
 
 const BookList = () => {
-  return <section className='booklist'>{newNames}</section>;
+  return (
+    <section className='booklist'>
+      {names.map((name) => {
+        console.log(name);
+        return <h1>{name}</h1>;
+      })}
+    </section>
+  );
   /*
   return (
     <section className='booklist'>
