@@ -4,6 +4,16 @@ import ReactDom from 'react-dom/client';
 import './index.css';
 
 //https://amazon.com/Best-Sellers-Books/zgbs/books/
+const author = 'Colleen Hoover';
+const title = 'It Ends with Us';
+const img = './images/book.jpg';
+
+// parameters
+const someFunc = (param1, param2) => {
+  console.log(param1, param2);
+};
+// arguments
+someFunc('job', 'developer');
 
 const BookList = () => {
   return (
@@ -16,12 +26,10 @@ const BookList = () => {
   );
 };
 
-const author = 'Colleen Hoover';
 const Book = () => {
-  const title = 'It Ends with Us';
   return (
     <article className='book'>
-      <img src='./images/book.jpg' alt='It Ends with Us' />
+      <img src={img} alt={title} />
       <h2>{title}</h2>
       <h4>{author.toUpperCase()}</h4>
     </article>
