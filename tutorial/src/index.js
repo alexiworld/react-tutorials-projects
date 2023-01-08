@@ -30,8 +30,7 @@ const BookList = () => {
 };
 
 // children is a special property
-const Book = (props) => {
-  const { author, img, title, children } = props.book;
+const Book = ({ book: { author, img, title }, children }) => {
   return (
     <article className='book'>
       <img src={img} alt={title} />
