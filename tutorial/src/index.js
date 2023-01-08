@@ -33,10 +33,7 @@ const BookList = () => {
   );
 };
 
-const Book = (props) => {
-  console.log(props);
-  // order in destructuring does not matter
-  const { author, img, title } = props;
+const Book = ({ author, img, title }) => {
   return (
     <article className='book'>
       <img src={img} alt={title} />
