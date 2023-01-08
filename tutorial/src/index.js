@@ -11,8 +11,8 @@ const img = './images/book.jpg';
 const BookList = () => {
   return (
     <section className='booklist'>
-      <Book job='developer' />
-      <Book title='random title' number={22} />
+      <Book author={author} title={title} img={img} />
+      <Book author={author} title={title} />
     </section>
   );
 };
@@ -21,12 +21,9 @@ const Book = (props) => {
   console.log(props);
   return (
     <article className='book'>
-      <img src={img} alt={title} />
-      <h2>{title}</h2>
-      <h4>{author.toUpperCase()}</h4>
-      <p>{props.job}</p>
-      <p>{props.title}</p>
-      <p>{props.number}</p>
+      <img src={props.img} alt={props.title} />
+      <h2>{props.title}</h2>
+      <h4>{props.author.toUpperCase()}</h4>
     </article>
   );
 };
