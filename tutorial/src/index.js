@@ -44,12 +44,14 @@ const BookList = () => {
   );
 };
 
-const Book = ({ author, img, title }) => {
+// children is a special property
+const Book = ({ author, img, title, children }) => {
   return (
     <article className='book'>
       <img src={img} alt={title} />
       <h2>{title}</h2>
       <h4>{author.toUpperCase()}</h4>
+      {children}
     </article>
   );
 };
