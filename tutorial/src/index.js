@@ -3,6 +3,19 @@ import ReactDom from 'react-dom/client';
 
 import './index.css';
 
+// // Spreads
+// const friends = ['john', 'peter', 'anna'];
+// const newFriends = [...friends, 'susan'];
+// console.log(friends);
+// console.log(newFriends);
+// const someObject = {
+//   name: 'john',
+//   job: 'developer',
+// };
+// const newObject = { ...someObject, location: 'florida' };
+// console.log(someObject);
+// console.log(newObject);
+
 //https://amazon.com/Best-Sellers-Books/zgbs/books/
 const books = [
   {
@@ -23,14 +36,14 @@ const BookList = () => {
   return (
     <section className='booklist'>
       {books.map((book) => {
-        return <Book book={book} key={book.id} />;
+        return <Book {...book} key={book.id} />;
       })}
     </section>
   );
 };
 
 // children is a special property
-const Book = ({ book: { author, img, title }, children }) => {
+const Book = ({ author, img, title, children }) => {
   return (
     <article className='book'>
       <img src={img} alt={title} />
