@@ -31,11 +31,12 @@ const Book = () => {
 const Image = () => <img src='./images/book.jpg' alt='It Ends with Us' />;
 const Title = () => <h2>It Ends with Us</h2>;
 const Author = () => {
-  return (
-    <h4 style={{ color: '#617', fontSize: '0.75rem', marginTop: '0.5rem' }}>
-      Colleen Hoover
-    </h4>
-  );
+  const inlineHeadingStyles = {
+    color: '#617',
+    fontSize: '0.75rem',
+    marginTop: '0.5rem',
+  };
+  return <h4 style={inlineHeadingStyles}>Colleen Hoover</h4>;
 };
 
 const root = ReactDom.createRoot(document.getElementById('root'));
