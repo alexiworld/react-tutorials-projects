@@ -20,10 +20,10 @@ const books = [
 const BookList = () => {
   return (
     <section className='booklist'>
-      {books.map(() => {
+      {books.map((book) => {
         return (
           <div>
-            <h2>Item</h2>
+            <h2>{book}</h2>
           </div>
         );
       })}
