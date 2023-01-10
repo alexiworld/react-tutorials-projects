@@ -68,3 +68,9 @@ to set the child position to absolute */
   background: #c35600;
   color: #fff;
 }
+
+h1 {
+  text-align: center;
+  margin-top: 4rem;
+  text-transform: capitalize;
+}
