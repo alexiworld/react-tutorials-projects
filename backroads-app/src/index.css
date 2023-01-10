@@ -558,11 +558,3 @@ Navbar
     color: var(--clr-primary-8);
   }
 }
-html {
-  scroll-behavior: smooth;
-}
-
-.section {
-  /* navbar height */
-  scroll-margin-top: 4rem;
-}
