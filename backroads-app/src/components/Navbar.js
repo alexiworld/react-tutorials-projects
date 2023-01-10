@@ -1,3 +1,4 @@
+/* add dynamic import */
 import logo from '../images/logo.svg';
 
 const Navbar = () => {
