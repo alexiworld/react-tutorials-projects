@@ -33,26 +33,33 @@ const books = [
 ];
 
 const BookList = () => {
-  const someValue = 'shakeAndBake';
-  const displayValue = () => {
-    console.log(someValue);
+  const getBook = (id) => {
+    return books.find((book) => book.id === id);
   };
   return (
     <section className='booklist'>
       {books.map((book) => {
-        return <Book {...book} key={book.id} displayValue={displayValue} />;
+        return <Book {...book} key={book.id} getBook={getBook} />;
       })}
     </section>
   );
 };
 
 // children is a special property
-const Book = ({ author, img, title, children, displayValue }) => {
+const Book = (props) => {
+  const { author, img, title, children, getBook, id } = props;
+  const displayBook = () => {
+    console.log(getBook(id));
+  };
+  // ERROR: onClick={getBook(id)} will be run at page load time.
+  // This is because every time we have () after the function it
+  // makes it run immediately. How to work around it? Well we can
+  // use the arrow function as shown above.
   return (
     <article className='book'>
       <img src={img} alt={title} />
       <h2>{title}</h2>
-      <button onClick={displayValue}>display title</button>
+      <button onClick={displayBook}>display title</button>
       <h4>{author.toUpperCase()}</h4>
       {children}
     </article>
