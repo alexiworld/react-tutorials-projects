@@ -113,3 +113,5 @@ const Tours = () => {
     </section>
   );
 };
+
+export default Tours;
