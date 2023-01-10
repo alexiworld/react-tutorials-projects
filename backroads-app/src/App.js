@@ -1,25 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  // Showing that  <React.StrictMode> will cause the app to be rendered twice.
+  // Strict mode runs only in DEV and help to detect errors during development time
+  console.log('Hello! Be seeing it twice.');
+  return <h1>backroads app</h1>;
 }
 
 export default App;
