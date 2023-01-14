@@ -5,6 +5,13 @@ const UseStateArray = () => {
   // either import useState or write React.useState
   // const [people, setPeople] = React.useState([]);
   const [people, setPeople] = React.useState(data);
+  const removeItem = (id) => {
+    // my solution
+    // const newPeople = [...people].filter((person) => person.id !== id);
+    // instructor's solution
+    let newPeople = people.filter((person) => person.id !== id);
+    setPeople(newPeople);
+  };
   return (
     <>
       {people.map((person) => {
@@ -13,6 +20,7 @@ const UseStateArray = () => {
         return (
           <div key={id} className='item'>
             <h4>{name}</h4>
+            <button onClick={() => removeItem(id)}>remove</button>
           </div>
         );
       })}
