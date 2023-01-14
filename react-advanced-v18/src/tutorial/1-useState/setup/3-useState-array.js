@@ -9,8 +9,14 @@ const UseStateArray = () => {
     // my solution
     // const newPeople = [...people].filter((person) => person.id !== id);
     // instructor's solution
-    let newPeople = people.filter((person) => person.id !== id);
-    setPeople(newPeople);
+
+    // changed it to use the latest state value - people, in fact
+    // there is no need of this style here but some people may find
+    // it safer and preferable for use in all cases.
+    setPeople((people) => {
+      let newPeople = people.filter((person) => person.id !== id);
+      return newPeople;
+    });
   };
   return (
     <>
