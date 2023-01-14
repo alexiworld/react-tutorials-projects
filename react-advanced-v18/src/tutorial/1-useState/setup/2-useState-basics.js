@@ -11,7 +11,11 @@ const UseStateBasics = () => {
   // which in our case is 'text'
   const [text, setText] = useState('random title'); // value can be array, number, string, boolean e.g. 109
   const handleClick = () => {
-    setText('hello people');
+    if (text === 'random title') {
+      setText('hello people');
+    } else {
+      setText('random title');
+    }
   };
   return (
     <React.Fragment>
