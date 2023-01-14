@@ -16,6 +16,10 @@ const UseStateArray = () => {
           </div>
         );
       })}
+      {/* setPeople({}) as used will cause a problem. Need to use the arrow function to work. */}
+      <button className='btn' onClick={setPeople({})}>
+        clear items
+      </button>
     </>
   );
 };
