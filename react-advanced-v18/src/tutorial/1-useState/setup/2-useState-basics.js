@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
 
+// use
+// - component name must start with uppercase
+// - must be in the function/component body
+// - cannot call conditionally
+// for example if you change UseStateBasics to useStateBasics in
+// const and export, and reload the page the browser will display
+// Failed to compile error.
+
 const UseStateBasics = () => {
   // console.log(useState('hello world'));
   // const value = useState(1)[0];
