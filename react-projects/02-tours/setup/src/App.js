@@ -27,7 +27,7 @@ function App() {
   if (loading) {
     return (<main><Loading/></main>);
   }
-  return (<main><Tours/></main>);
+  return (<main><Tours tours={tours}/></main>);
 }
 
 export default App
