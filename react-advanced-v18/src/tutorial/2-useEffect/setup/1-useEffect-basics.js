@@ -11,14 +11,13 @@ import React, { useState, useEffect } from 'react';
 // second parameter
 const UseEffectBasics = () => {
   const [value, setValue] = useState(0);
-  // DANGER DANGER ... we cannot place hooks inside conditionals.
-  // This will not work.
-  if (value > 0) {
-    useEffect(() => {
-      console.log('call useEffect');
+  useEffect(() => {
+    console.log('call useEffect');
+    // One way to make it work ...
+    if (value > 0) {
       document.title = `New Messages(${value})`;
-    });
-  }
+    }
+  });
   console.log('render component');
   return (
     <>
