@@ -21,6 +21,17 @@ const UseEffectBasics = () => {
       document.title = `New Messages(${value})`;
     }
   }, [value]); // notice the 2nd parameter is array with the value.
+
+  // You can have more than one useEffect, and notice in the next
+  // example the function passed as first parameter of the second
+  // useEffect will run ONLY during the initial render.
+  useEffect(() => {
+    console.log('call 2nd useEffect');
+    if (value >= 1) {
+      document.title = `New Messages(${value})`;
+    }
+  }, []); // notice that the 2nd parameter now is an empty array.
+
   console.log('render component');
   return (
     <>
