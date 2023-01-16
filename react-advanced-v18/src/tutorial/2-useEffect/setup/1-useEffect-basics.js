@@ -12,15 +12,15 @@ import React, { useState, useEffect } from 'react';
 const UseEffectBasics = () => {
   const [value, setValue] = useState(0);
   // The other way to make it work is to pass list of dependencies,
-  // which is the second parameter of useEffect. The empty array
-  // would make the function passed as a first param of useEffect
-  // to run only in the initial render.
+  // which is the second parameter of useEffect. The array with the
+  // value will cause the function passed as a first parameter of
+  // useEffect to run ONLY when the value changes.
   useEffect(() => {
     console.log('call useEffect');
     if (value >= 1) {
       document.title = `New Messages(${value})`;
     }
-  }, []); // notice the empty array passed as a second parameter.
+  }, [value]); // notice the 2nd parameter is array with the value.
   console.log('render component');
   return (
     <>
