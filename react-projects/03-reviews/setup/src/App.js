@@ -2,11 +2,18 @@ import React from 'react';
 import Review from './Review';
 // Importing icons:
 // https://react-icons.github.io/react-icons/
-import { FaGithubSquare } from 'react-icons/fa';
 function App() {
-  return <h2>reviews project setup
-    <FaGithubSquare className='icon'/>
-  </h2>;
+  return (
+    <main>
+      <section className='container'>
+        <div className='title'>
+          <h2>our reviews</h2>
+          <div className='underline'></div>
+        </div>
+        <Review />
+      </section>
+    </main>
+  );
 }
 
 export default App;
