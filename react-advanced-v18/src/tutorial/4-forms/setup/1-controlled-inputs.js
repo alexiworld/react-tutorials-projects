@@ -10,7 +10,7 @@ const ControlledInputs = () => {
   const [email, setEmail] = useState('');
 
   const handleSubmit = (e) => {
-    console.log('hello world');
+    console.log(firstName, email);
     e.preventDefault();
   };
   return (
@@ -19,11 +19,22 @@ const ControlledInputs = () => {
         <form className='form' onSubmit={handleSubmit}>
           <div className='form-control'>
             <label htmlFor='firstName'>Name: </label>
-            <input type='text' id='firstName' value={firstName} />
+            <input
+              type='text'
+              id='firstName'
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
           </div>
           <div className='form-control'>
             <label htmlFor='email'>Email: </label>
-            <input type='text' id='email' name='email' value={email} />
+            <input
+              type='text'
+              id='email'
+              name='email'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
           {/* or define onClick attribute passing the handleSubmit fn */}
           <button type='submit'>add person</button>
