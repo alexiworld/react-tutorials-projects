@@ -8,10 +8,23 @@ import React, { useState } from 'react';
 const ControlledInputs = () => {
   const [firstName, setFirstName] = useState('');
   const [email, setEmail] = useState('');
-
+  const [people, setPeople] = useState([]);
   const handleSubmit = (e) => {
-    console.log(firstName, email);
     e.preventDefault();
+    if (firstName && email) {
+      // no empty fields
+      // In ES6 if the value variable name matches the field
+      // name, the value could be skipped. For example:
+      // person = {firstName: firstName, email: email};
+      const person = { id: new Date().getTime().toString(), firstName, email };
+      // For the id value, the developer can decide to use UIID library.
+      setPeople((people) => [person, ...people]); // [...people, person]
+      setFirstName('');
+      setEmail('');
+      console.log(person);
+    } else {
+      console.log('Empty values.');
+    }
   };
   return (
     <>
@@ -39,6 +52,17 @@ const ControlledInputs = () => {
           {/* or define onClick attribute passing the handleSubmit fn */}
           <button type='submit'>add person</button>
         </form>
+        {people.map((person /*, index*/) => {
+          // you don't want to use index once you start
+          // adding and removing items to the list
+          const { id, firstName, email } = person;
+          return (
+            <div key={id}>
+              <h4 className='item'>{firstName}</h4>
+              <p>{email}</p>
+            </div>
+          );
+        })}
       </article>
     </>
   );
