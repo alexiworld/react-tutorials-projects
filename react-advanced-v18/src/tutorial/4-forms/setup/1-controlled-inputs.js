@@ -6,6 +6,9 @@ import React, { useState } from 'react';
 // value, onChange
 
 const ControlledInputs = () => {
+  const [firstName, setFirstName] = useState('');
+  const [email, setEmail] = useState('');
+
   const handleSubmit = (e) => {
     console.log('hello world');
     e.preventDefault();
@@ -16,11 +19,11 @@ const ControlledInputs = () => {
         <form className='form' onSubmit={handleSubmit}>
           <div className='form-control'>
             <label htmlFor='firstName'>Name: </label>
-            <input type='text' id='firstName' />
+            <input type='text' id='firstName' value={firstName} />
           </div>
           <div className='form-control'>
             <label htmlFor='email'>Email: </label>
-            <input type='text' id='email' name='email' />
+            <input type='text' id='email' name='email' value={email} />
           </div>
           {/* or define onClick attribute passing the handleSubmit fn */}
           <button type='submit'>add person</button>
