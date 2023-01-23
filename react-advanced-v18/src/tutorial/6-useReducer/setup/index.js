@@ -6,8 +6,8 @@ const reducer = (state, action) => {
 
 }
 const defaultState = {
-  people: data, // []
-  isModalOpen: true, // false
+  people: [],
+  isModalOpen: false, 
   modalContent: 'hello world'
 }
 const Index = () => {
