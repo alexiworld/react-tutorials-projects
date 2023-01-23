@@ -7,8 +7,8 @@ const reducer = (state, action) => {
   // YOU ALWAYS WANT TO RETURN SOME STATE IF YOU WANT
   // YOUR FUNCTIONALITY TO WORK!!! 
   // Enter something, click Add button, check the console
-  // This error is because the state is gone...
-  // return state;
+  // This error is gone
+  return state;
 }
 const defaultState = {
   people: [],
