@@ -6,8 +6,9 @@ const reducer = (state, action) => {
   console.log(state, action);
   // YOU ALWAYS WANT TO RETURN SOME STATE IF YOU WANT
   // YOUR FUNCTIONALITY TO WORK!!! 
-  // Enter something, click Add button, check the console
-  // This error is gone
+  if (action.type === 'TESTING') {
+    return {...state, people: data, isModalOpen: true, modalContent: 'item added'};
+  }
   return state;
 }
 const defaultState = {
