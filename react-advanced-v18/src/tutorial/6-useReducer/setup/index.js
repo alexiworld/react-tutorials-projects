@@ -9,7 +9,8 @@ const reducer = (state, action) => {
   if (action.type === 'TESTING') {
     return {...state, people: data, isModalOpen: true, modalContent: 'item added'};
   }
-  return state;
+  //return state;
+  throw new Error('no matching action type');
 }
 const defaultState = {
   people: [],
@@ -25,6 +26,7 @@ const Index = () => {
       // only need to pass the property type to the dispatch fn
       dispatch({type: 'TESTING'})
     } else {
+      dispatch({type: 'RANDOM'}) // triggers an error
     }
   }
   return <>
