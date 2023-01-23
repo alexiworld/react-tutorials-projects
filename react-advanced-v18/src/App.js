@@ -1,5 +1,7 @@
 import React from 'react';
-import Setup from './tutorial/3-conditional-rendering/setup/3-show-hide';
+// If a directory is specified, Node.js will look
+// for index.js to load the default object.
+import Setup from './tutorial/6-useReducer/setup';
 
 function App() {
   return (
