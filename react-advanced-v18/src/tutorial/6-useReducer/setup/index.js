@@ -3,7 +3,12 @@ import Modal from './Modal';
 import { data } from '../../../data';
 // reducer function
 const reducer = (state, action) => {
-
+  console.log(state, action);
+  // YOU ALWAYS WANT TO RETURN SOME STATE IF YOU WANT
+  // YOUR FUNCTIONALITY TO WORK!!! 
+  // Enter something, click Add button, check the console
+  // This error is because the state is gone...
+  // return state;
 }
 const defaultState = {
   people: [],
@@ -16,6 +21,8 @@ const Index = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name) {
+      // only need to pass the property type to the dispatch fn
+      dispatch({type: 'TESTING'})
     } else {
     }
   }
