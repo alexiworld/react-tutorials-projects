@@ -5,6 +5,7 @@ const Product = ({image, name, price}) => {
   // the images is undefined. This will not be the case
   // when the price is undefined, where an empty string
   // will be rendered.
+  console.log(image, name, price);
   return 
   (<article className='product'>
     <img src={image.url} alt={name}></img>
