@@ -6,6 +6,9 @@ import { useFetch } from '../../9-custom-hooks/final/2-useFetch'
 const url = 'https://course-api.com/javascript-store-products'
 
 // every time props or state changes, component re-renders
+// So, the problem we observe here is that every click on the button
+// leads to increase of the count BUT ALSO to rerender of the big
+// list and therefore each single product.
 
 const Index = () => {
   const { products } = useFetch(url)
@@ -23,6 +26,9 @@ const Index = () => {
 }
 
 const BigList = ({ products }) => {
+  useEffect(() => {
+    console.log('BigList called.');
+  });
   return (
     <section className='products'>
       {products.map((product) => {
@@ -33,6 +39,9 @@ const BigList = ({ products }) => {
 }
 
 const SingleProduct = ({ fields }) => {
+  useEffect(() => {
+    console.log('SingleProduct called.');
+  });
   let { name, price } = fields
   price = price / 100
   const image = fields.image[0].url
