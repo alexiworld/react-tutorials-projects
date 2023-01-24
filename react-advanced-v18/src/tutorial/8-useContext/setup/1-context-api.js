@@ -5,6 +5,10 @@ import { data } from '../../../data';
 
 const PersonContext = React.createContext();
 // two components - Provider, Consumer
+// Where using the context makes sense is when there are
+// more than 2-3 nested levels of components. In this case
+// removePerson is fine but passing people via the context
+// does not add much value.
 
 const ContextAPI = () => {
   const [people, setPeople] = useState(data);
@@ -17,17 +21,22 @@ const ContextAPI = () => {
   // using the new JS feature not to declare the value if the
   // value variable name matches the field name.
   return (
-    <PersonContext.Provider value={{removePerson}}>
-      <h3>prop drilling</h3>
-      <List people={people}/>
+    <PersonContext.Provider value={{removePerson, people}}>
+      <h3>Context API / useContext</h3>
+      <List/>
     </PersonContext.Provider>
   );
 };
 
-const List = ({ people, removePerson }) => {
+const List = () => {
+  // you can destructure the object by replacing mainData
+  // with const { people } = useContext(PersonContext);
+  // and then use people.map directly.s 
+  const mainData = useContext(PersonContext);
+  console.log(mainData);
   return (
     <>
-      {people.map((person) => {
+      {mainData.people.map((person) => {
         return (
           <SinglePerson
             key={person.id}
