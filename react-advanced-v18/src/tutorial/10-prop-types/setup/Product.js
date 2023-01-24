@@ -8,11 +8,16 @@ const Product = ({image, name, price}) => {
   // when the price is undefined, where an empty string
   // will be rendered.
   console.log(image, name, price);
-  return 
-  (<article className='product'>
-    <img src={image.url} alt={name}></img>
+  // Work around the error that may occur if used <img
+  // src={image.url || defaultImage} ...> by introducing
+  // url constant. If the image is not there, the code
+  // is not checking url field of undefined image object.
+  const url = image && image.url;
+  return (
+  <article className='product'>
+    <img src={ url || defaultImage} alt={name}></img>
     <h4>{name}</h4>
-    <p>{price}</p>
+    <p>{price || 3.99}</p>
     </article>);
 };
 
@@ -22,10 +27,11 @@ Product.propTypes = {
   price: PropTypes.object.isRequired,
 };
 
-Product.defaultProps = {
-  name: 'default name',
-  price: 3.99,
-  image: defaultImage,
-}
+// Product.defaultProps = {
+//   name: 'default name',
+//   price: 3.99,
+//   image: defaultImage,
+// }
+
 export default Product;
  
