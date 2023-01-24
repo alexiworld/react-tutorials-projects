@@ -25,7 +25,11 @@ const Index = () => {
   )
 }
 
-const BigList = ({ products }) => {
+// The solution to the problem with "the btn click causing re-rendering"
+// can be solved by using React.memo() fn. The function checks if the
+// parameters (in this case the value of products) have changed and if so 
+// (and only so) it triggers the re-render of the BigList component.
+const BigList = React.memo(({ products }) => {
   useEffect(() => {
     console.log('BigList called.');
   });
@@ -36,7 +40,7 @@ const BigList = ({ products }) => {
       })}
     </section>
   )
-}
+});
 
 const SingleProduct = ({ fields }) => {
   useEffect(() => {
