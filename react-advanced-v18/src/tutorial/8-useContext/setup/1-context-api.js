@@ -13,10 +13,13 @@ const ContextAPI = () => {
       return people.filter((person) => person.id !== id);
     });
   };
+  // Note that we pass an object {removePerson: removePerson}
+  // using the new JS feature not to declare the value if the
+  // value variable name matches the field name.
   return (
-    <PersonContext.Provider value='hello'>
+    <PersonContext.Provider value={{removePerson}}>
       <h3>prop drilling</h3>
-      <List people={people} removePerson={removePerson} />
+      <List people={people}/>
     </PersonContext.Provider>
   );
 };
@@ -29,7 +32,6 @@ const List = ({ people, removePerson }) => {
           <SinglePerson
             key={person.id}
             {...person}
-            removePerson={removePerson}
           />
         );
       })}
@@ -37,9 +39,11 @@ const List = ({ people, removePerson }) => {
   );
 };
 
-const SinglePerson = ({ id, name, removePerson }) => {
-  const data = useContext(PersonContext);
-  console.log(data);
+const SinglePerson = ({ id, name }) => {
+  // useContext returns an object, which we destructure to 
+  // be able to reference removePerson directly.
+  const {removePerson} = useContext(PersonContext);
+  console.log(removePerson);
   return (
     <div className='item'>
       <h4>{name}</h4>
