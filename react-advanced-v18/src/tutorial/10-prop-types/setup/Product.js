@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DefaultImage from '../../../default-image.jpg'
+import defaultImage from '../../../assets/default-image.jpeg'
 
 const Product = ({image, name, price}) => {
   // Cannot read properties of undefined because one of
@@ -25,7 +25,7 @@ Product.propTypes = {
 Product.defaultProps = {
   name: 'default name',
   price: 3.99,
-  image: DefaultImage
+  image: defaultImage,
 }
 export default Product;
  
