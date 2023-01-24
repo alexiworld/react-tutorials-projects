@@ -14,13 +14,29 @@ const Index = () => {
   const { products } = useFetch(url)
   const [count, setCount] = useState(0)
 
+  // Added cart functionality, and every time we add a product,
+  // this will trigger a re-render of Index component, and this
+  // will cause a new addToCart to be created, and this will 
+  // cause BigList to be re-rendered as well because this time 
+  // the new parameter addToCart changes. So React.memo() does
+  // not help.
+  // What is the solution??
+  // The solution is to use 'useCallback' now. It will recreate
+  // the function if the value has changed; otherwise, not.
+  const [cart, setCart] = useState(0);
+
+  const addToCart = () => {
+    setCart(cart+1);
+  } 
+
   return (
     <>
       <h1>Count : {count}</h1>
       <button className='btn' onClick={() => setCount(count + 1)}>
         click me
       </button>
-      <BigList products={products} />
+      <h1 style={{marginTop: '3rem'}}>cart: {cart}</h1>
+      <BigList products={products} addToCart={addToCart}/>
     </>
   )
 }
@@ -29,20 +45,23 @@ const Index = () => {
 // can be solved by using React.memo() fn. The function checks if the
 // parameters (in this case the value of products) have changed and if so 
 // (and only so) it triggers the re-render of the BigList component.
-const BigList = React.memo(({ products }) => {
+const BigList = React.memo(({ products, addToCart }) => {
   useEffect(() => {
     console.log('BigList called.');
   });
   return (
     <section className='products'>
       {products.map((product) => {
-        return <SingleProduct key={product.id} {...product}></SingleProduct>
-      })}
+        return (<SingleProduct 
+        key={product.id} 
+        {...product}
+        addToCart={addToCart}></SingleProduct>
+      );})}
     </section>
   )
 });
 
-const SingleProduct = ({ fields }) => {
+const SingleProduct = ({ fields, addToCart }) => {
   useEffect(() => {
     console.log('SingleProduct called.');
   });
@@ -55,6 +74,7 @@ const SingleProduct = ({ fields }) => {
       <img src={image} alt={name} />
       <h4>{name}</h4>
       <p>${price}</p>
+      <button onClick={addToCart}>add to cart</button>
     </article>
   )
 }
