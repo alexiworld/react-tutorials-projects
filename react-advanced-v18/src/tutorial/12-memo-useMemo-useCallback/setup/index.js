@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react'
-import { useFetch } from '../../9-custom-hooks/final/2-useFetch'
+import { useFetch } from '../../9-custom-hooks/setup/2-useFetch'
 
 // ATTENTION!!!!!!!!!!
 // I SWITCHED TO PERMANENT DOMAIN
@@ -27,8 +27,9 @@ const calculateMostExpensive = (data) => {
 }
 
 const Index = () => {
-  const { products } = useFetch(url)
-  const [count, setCount] = useState(0)
+  console.log('Re-render Index component');
+  const { products } = useFetch(url);
+  const [count, setCount] = useState(0);
 
   // Added cart functionality, and every time we add a product,
   // this will trigger a re-render of Index component, and this

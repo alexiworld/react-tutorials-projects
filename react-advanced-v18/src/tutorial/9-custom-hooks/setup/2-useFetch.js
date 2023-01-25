@@ -1,10 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 // To be custom hook, the function must start with 'use'
 export const useFetch = (url) => {
-    const [loading, setLoading] = useState(true)
+  console.log('useFetch is called.');
+  const [loading, setLoading] = useState(true)
     const [products, setProducts] = useState([])
-  
+
+    // Uncomment bellow and comment useCallback version
+    // to be able to see the infinite loop problem.
+    //
+    // const getProducts = async () => {
+    //   console.log('getProducts is called.');
+    //   const response = await fetch(url)
+    //   const products = await response.json()
+    //   setProducts(products)
+    //   setLoading(false)
+    // };
     const getProducts = useCallback(async () => {
       const response = await fetch(url)
       const products = await response.json()
@@ -37,6 +48,7 @@ export const useFetch = (url) => {
     // fn to be recreated only if the url (see useCallback 2nd 
     // param) changes.
     useEffect(() => {
+      console.log('useEffect is called.');
       getProducts()
     }, [url, getProducts])
     return {loading, products}
