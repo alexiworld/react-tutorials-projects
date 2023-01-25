@@ -10,6 +10,21 @@ const url = 'https://course-api.com/javascript-store-products'
 // leads to increase of the count BUT ALSO to rerender of the big
 // list and therefore each single product.
 
+const calculateMostExpensive = (data) => {
+  // The reduce will give back the highest price. It initializes
+  // total with 0, and for every item it checks if the price is
+  // greater and if so, it remembers it in total and returns it.
+  // By doing so, the returned total becomes the new accumulated 
+  // value.
+  return data.reduce((total, item) => {
+    const price = item.fields.price;
+    if (price >= total) {
+      total = price;
+    }
+    return total;
+  }, 0)/100;
+}
+
 const Index = () => {
   const { products } = useFetch(url)
   const [count, setCount] = useState(0)
@@ -36,6 +51,7 @@ const Index = () => {
         click me
       </button>
       <h1 style={{marginTop: '3rem'}}>cart: {cart}</h1>
+      <h1>Most expensive: ${calculateMostExpensive(products)}</h1>
       <BigList products={products} addToCart={addToCart}/>
     </>
   )
