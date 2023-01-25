@@ -25,9 +25,9 @@ const Index = () => {
   // the function if the value has changed; otherwise, not.
   const [cart, setCart] = useState(0);
 
-  const addToCart = () => {
+  const addToCart = useCallback(() => {
     setCart(cart+1);
-  } 
+  }, [cart]); // only when we update the cart value
 
   return (
     <>
