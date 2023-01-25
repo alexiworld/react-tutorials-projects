@@ -11,7 +11,10 @@ export const useFetch = (url) => {
       setProducts(products)
       setLoading(false)
     }
-  
+
+    // Adding getProducts to the array with variables, which
+    // value change will trigger re-run of the useEffect fn
+    // WILL CREATE an INFINITE LOOP. 
     useEffect(() => {
       getProducts()
     }, [url, getProducts])
