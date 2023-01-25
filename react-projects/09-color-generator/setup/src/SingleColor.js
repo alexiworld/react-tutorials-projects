@@ -6,11 +6,24 @@ const SingleColor = ({rgb, weight, index, hexColor}) => {
   const bcg = rgb.join(',');
   const hex = rgbToHex(...rgb); // {hex} or use {hexColor}
   const hexValue = `#${hexColor}`; // using template string
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setAlert(false);
+    }, 3000);
+    return () => {
+      clearTimeout(timeout);
+    }
+  }, [alert]);
   return <article className={`color ${index > 10 && 'color-light'}`} 
-  style={{backgroundColor:`rgb(${bcg})`}}>
-<p className='percent-value'>{weight}%</p>
-<p className='color-value'>{rgbToHex(...rgb)}</p>
-<p className='color-value'>{hexValue}</p>
+      style={{backgroundColor:`rgb(${bcg})`}}
+      onClick={() => {
+        setAlert(true);
+        navigator.clipboard.writeText(hexValue);
+      }}>
+    <p className='percent-value'>{weight}%</p>
+    <p className='color-value'>{rgbToHex(...rgb)}</p>
+    <p className='color-value'>{hexValue}</p>
+    {alert && <p className='alert'>copied to clipboard</p>}
   </article>
 }
 
