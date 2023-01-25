@@ -9,7 +9,15 @@ function App() {
   const [list,setList] = useState([]);
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('hello');
+    try {
+      let colors = new Values(color).all(10);
+      console.log(colors);
+      setError(false);
+    } catch (error) {
+      setError(true);
+      console.log(error);
+    }
+
   }
   return (
     <>
@@ -18,7 +26,8 @@ function App() {
       <form onSubmit={handleSubmit}>
         <input type='text' value={color} 
         onChange={(e) => setColor(e.target.value)}
-        placeholder='#f15025'/>
+        placeholder='#f15025'
+        className={`${error?'error':''}`}/>
         <button className='btn' type='submit'>submit</button>
       </form>
     </section>
