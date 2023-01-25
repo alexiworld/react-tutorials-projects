@@ -11,6 +11,7 @@ const url = 'https://course-api.com/javascript-store-products'
 // list and therefore each single product.
 
 const calculateMostExpensive = (data) => {
+  console.log("Call calculateMostExpensive.");
   // The reduce will give back the highest price. It initializes
   // total with 0, and for every item it checks if the price is
   // greater and if so, it remembers it in total and returns it.
@@ -43,6 +44,13 @@ const Index = () => {
   const addToCart = useCallback(() => {
     setCart(cart+1);
   }, [cart]); // only when we update the cart value
+
+  // Use useMemo function to limit calculateMostExpensive function
+  // to be called only when products change.
+  const mostExpensive = useMemo(
+    () => calculateMostExpensive(products),
+    [products]
+  );
 
   return (
     <>
