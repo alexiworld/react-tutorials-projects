@@ -2,9 +2,16 @@ import React, { useState, useEffect } from 'react'
 import List from './List'
 import Alert from './Alert'
 
+const getLocalStorage = () => {
+  let list = localStorage.getItem('list');
+  if (list) {
+    list = JSON.parse(list);
+  } 
+  return list || [];
+}
 function App() {
   const [name, setName] = useState('');
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(getLocalStorage());
   const [isEditing, setIsEditing] = useState(false);
   const [editID, setEditID] = useState(null);
   const [alert, setAlert] = useState({
@@ -60,6 +67,11 @@ function App() {
     setEditID(id);
     setName(specificItem.title);
   }
+
+  // Every time the list changes we would want to persist the changes
+  useEffect(() => {
+    localStorage.setItem('list', JSON.stringify(list));
+  }, [list]);
 
   return <section className='section-center'>
     <form className='grocery-form' onSubmit={handleSubmit}>
