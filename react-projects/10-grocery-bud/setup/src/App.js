@@ -13,7 +13,7 @@ function App() {
     e.preventDefault();
     if (!name) {
       // TODO: display alert
-      setAlert({show: true, msg: 'please enter value', type: 'danger'});
+      showAlert(true, 'danger', 'please enter value');
     } else if (name && isEditing) {
       // deal with edit
     } else {
@@ -24,6 +24,13 @@ function App() {
       setName('');
     }
   }
+
+  // Using ES6 feature to declare default values
+  const showAlert = (show=false, type='', msg='') => {
+    // Using ES6 shortcut feature to declare the object
+    // equivalent to {show: show, type: type, msg: msg} 
+    setAlert({show, type, msg});
+  };
   return <section className='section-center'>
     <form className='grocery-form' onSubmit={handleSubmit}>
     {alert.show && <Alert {...alert}/>}
