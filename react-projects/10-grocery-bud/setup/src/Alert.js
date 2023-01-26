@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 
 const Alert = ({type, msg, removeAlert}) => {
   useEffect(() => {
-    timeout = setTimeout(removeAlert(), 3000) // note that we use the default values
+    const timeout = setTimeout(removeAlert(), 3000) // note that we use the default values
     return () => {
       clearTimeout(timeout);
     }
