@@ -30,6 +30,7 @@ function App() {
   const showAlert = (show=false, type='', msg='') => {
     // Using ES6 shortcut feature to declare the object
     // equivalent to {show: show, type: type, msg: msg} 
+    console.log(new Date(), 'Alert: ', {show, type, msg});
     setAlert({show, type, msg});
   };
 
@@ -46,7 +47,7 @@ function App() {
   return <section className='section-center'>
     <form className='grocery-form' onSubmit={handleSubmit}>
     {alert.show && 
-      <Alert {...alert} removeAlert={showAlert}/>}
+      <Alert {...alert} removeAlert={showAlert} list={list}/>}
     <h3>grocery bud</h3>
     <div className='form-control'>
       <input type='text' className='grocery' 

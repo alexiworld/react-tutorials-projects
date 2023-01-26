@@ -4,7 +4,7 @@ const List = ({items, removeItem}) => {
   return <div className='grocery-list'>
     {items.map((item) => {
       const {id, title} = item;
-      console.log(id);
+      console.log('Render article: ', id);
       return (
         <article key={id} className='grocery-item'>
           <p className='title'>{title}</p>
