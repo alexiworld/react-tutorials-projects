@@ -18,6 +18,7 @@ function App() {
       // deal with edit
     } else {
       // show alert
+      showAlert(true, 'success', 'item added to the list');
       const newItem = {id: new Date().getTime().toString(), 
         title: name};
       setList([...list, newItem]);
@@ -31,6 +32,11 @@ function App() {
     // equivalent to {show: show, type: type, msg: msg} 
     setAlert({show, type, msg});
   };
+
+  const clearList = () => {
+    showAlert(true, 'danger', 'empty list');
+    setList([]);
+  }
 
   return <section className='section-center'>
     <form className='grocery-form' onSubmit={handleSubmit}>
@@ -47,7 +53,7 @@ function App() {
     {list.length > 0 && (
     <div className='grocery-container'>
       <List items={list}/>
-      <button className='clear-btn'>
+      <button className='clear-btn' onClick={clearList}>
         clear items
       </button>
     </div>)}
